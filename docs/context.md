@@ -3,9 +3,7 @@
 ## Intro & Links
 
 - [GitHub - AlbertProfe/howContextWorks](https://github.com/AlbertProfe/howContextWorks)
-
 - [React JS: useContext – albertprofe wiki](https://albertprofe.dev/reactjs/reactjs-hook-context.html)
-
 - [react.dev: context](https://react.dev/learn/passing-data-deeply-with-context)
 
 **Analogy: Container for Shared State**
@@ -13,12 +11,11 @@
 Think of a Context object like a **global container for shared state**:
 
 1. The `Provider` acts as a "source" that supplies data.
-
 2. Components consuming the context (via `useContext`) act as "listeners" that read from this source.
 
 ## Exmaples
 
-Here are 5 simple examples to demonstrate the use of the `useContext` hook in React, these examples showcase how `useContext` simplifies state sharing across components without prop drilling.:
+Here are **6 simple examples to demonstrate the use of the `useContext` hook in React**, these examples showcase how `useContext` simplifies state sharing across components <mark>without prop drilling</mark>:
 
 ### 1. **Basic Context Example**
 
@@ -149,7 +146,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ### 6. Storing Multiple Data Types in Context
@@ -209,20 +205,17 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ## Sharing states in 3 steps
 
-- context creation
+- `context creation`: creates the `context` object container 
+- `context provider`: fills `context` with data and provides to childrens
+- `context hook`: consumes data via `useContext` `hook`
 
-- context provider
+Let's discuss the <mark>Example#5</mark>
 
-- context hook
-
-Let's discuss the Example#5
-
-### Explanation of `const DataProvider = createContext();`
+#### Explanation of `const DataProvider = createContext();`
 
 The `createContext()` function in React is used to create a **Context object**. This object allows you to share data across components without having to pass props manually through every level of the component tree. Let’s break it down:
 
@@ -268,7 +261,7 @@ Using context:
 
 - Any component within the `<DataProvider.Provider>` subtree can directly access the shared data using `useContext`.
 
-## Example Flow Code:
+## Example Flow Code
 
 1. **Create Context**:
    
@@ -291,7 +284,5 @@ Using context:
 ## Recap
 
 - The context created by `createContext()` is not a JSON object, array, or literal—it’s a special React object for managing shared state.
-
 - The actual data is stored internally by React within its memory and passed down through the component tree using the `<Provider>` and consumed via `useContext`.
-
 - This approach simplifies state management across deeply nested components by eliminating prop drilling.
