@@ -1,4 +1,4 @@
-# context
+# How Context works
 
 ## Intro & Links
 
@@ -13,7 +13,7 @@ Think of a Context object like a **global container for shared state**:
 1. The `Provider` acts as a "source" that supplies data.
 2. Components consuming the context (via `useContext`) act as "listeners" that read from this source.
 
-## Exmaples
+## Examples
 
 Here are **6 simple examples to demonstrate the use of the `useContext` hook in React**, these examples showcase how `useContext` simplifies state sharing across components <mark>without prop drilling</mark>:
 
