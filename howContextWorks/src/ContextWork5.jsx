@@ -5,18 +5,35 @@ const DataProvider = createContext();
 
 // App Parent Context Root Component 3
 function ParentRootContext3() {
-  const [data, setData] = useState("Initial Shared Data");
+  const [data, setData] = useState({
+    input1: "Initial Shared Data",
+    input2: "Initial Shared Data",
+  });
+
+  const handleInputChange = (e, inputName) => {
+    setData((prevData) => ({
+      ...prevData,
+      [inputName]: e.target.value,
+    }));
+  };
 
   return (
     <DataProvider.Provider value={data}>
       <div className="parent-root">
-        <h3>React useContext Example#3</h3>
+        <h3>React useContext Example#5</h3>
         {/* Input to update shared data */}
         <input
           type="text"
-          placeholder="Update shared data"
-          value={data}
-          onChange={(e) => setData(e.target.value)}
+          placeholder="Update shared data input1"
+          value={data.input1}
+          onChange={(e) => handleInputChange(e, "input1")}
+          className="data-input"
+        />
+        <input
+          type="text"
+          placeholder="Update shared data input2"
+          value={data.input2}
+          onChange={(e) => handleInputChange(e, "input2")}
           className="data-input"
         />
         <div className="branches-container">
@@ -43,7 +60,7 @@ function Child3() {
     <div className="child-component">
       <h3>Child3 Component</h3>
       <p>
-        Shared Data: <strong>{data}</strong>
+        Shared Data: <strong>{data.input1}</strong>
       </p>
     </div>
   );
@@ -76,7 +93,7 @@ function Child13() {
     <div className="child-component">
       <h3>Child13 Component</h3>
       <p>
-        Shared Data: <strong>{data}</strong>
+        Shared Data: <strong>{data.input1}</strong>
       </p>
     </div>
   );
@@ -88,6 +105,20 @@ function Child12() {
     <div className="child-component">
       <h3>Child12 Component</h3>
       <Child13 />
+      <Child21 />
+    </div>
+  );
+}
+
+// Child21 Component (Second Branch)
+function Child21() {
+  const data = useContext(DataProvider);
+  return (
+    <div className="child-component">
+      <h3>Child21 Component</h3>
+      <p>
+        Shared Data: <strong>{data.input2}</strong>
+      </p>
     </div>
   );
 }

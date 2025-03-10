@@ -54,6 +54,49 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.parent-root {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.data-input {
+  padding: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.child-component {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin: 10px;
+}
+
+.branches-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.branch {
+  flex: 1;
+}
+
+.context-data-container {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: left; /* Aligns all text to the left */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
